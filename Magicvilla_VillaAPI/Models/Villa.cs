@@ -6,9 +6,7 @@ namespace Magicvilla_VillaAPI.Models
     public class Villa
     {
         public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }
-
