@@ -11,6 +11,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.36" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.36" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.36" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.36">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="PesterForPackageManagerConsole" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.36" />
+    <PackageReference Include="NugetPackageManager" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,13 +26,11 @@
     <None Remove="Models\" />
     <None Remove="Models\Dto\" />
     <None Remove="Data\" />
-    <None Remove="Logging\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Dto\" />
     <Folder Include="Data\" />
-    <Folder Include="Logging\" />
   </ItemGroup>
 </Project>

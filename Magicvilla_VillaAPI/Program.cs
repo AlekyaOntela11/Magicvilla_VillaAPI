@@ -1,5 +1,8 @@
 ﻿//using Serilog;
-using Magicvilla_VillaAPI.Logging;
+//using Magicvilla_VillaAPI.Logging;
+
+using Magicvilla_VillaAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +20,16 @@ builder.WebHost.ConfigureKestrel(options =>
     });
 });
 
-builder.Services.AddControllers(option => { option.ReturnHttpNotAcceptable = true;
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+});
+builder.Services.AddControllers(option => {
+    option.ReturnHttpNotAcceptable = true;
 }).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<ILogging, Logging>();
+//builder.Services.AddSingleton<ILogging, Logging>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
